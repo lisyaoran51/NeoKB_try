@@ -1,14 +1,14 @@
 all: NeoKB.cpp NeoKB.h clk.h gpio.h dma.h pwm.h ws2811.h
-	g++ -o NeoKB.cpp -Wall
+	g++ -o NeoKB.cpp dma.o pwm.o ws2811.o
 
 dma.o: dma.c dma.h
 	g++ -c dma.c
 
 pwm.o: pwm.c pwm.h ws2811.h
-	g++ -c pwm.c
+	g++ -c pwm.c ws2811.o
 
 ws2811.o: ws2811.c ws2811.h mailbox.h clk.h gpio.h dma.h pwm.h pcm.h rpihw.h
-	g++ -c ws2811.c
+	g++ -c ws2811.c mailbox.o dma.o pwm.o pcm.o rpihw.o
 
 mailbox.o: mailbox.c mailbox.h
 	g++ -c mailbox.c
