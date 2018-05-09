@@ -1,5 +1,5 @@
 all: NeoKB.cpp NeoKB.h clk.h gpio.h dma.h pwm.h ws2811.h
-	g++ -c NeoKB.cpp
+	g++ -o NeoKB.cpp -Wall
 
 dma.o: dma.c dma.h
 	g++ -c dma.c
