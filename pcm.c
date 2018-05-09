@@ -37,12 +37,12 @@
 const pcm_pin_table_t pcm_pin_clk[] =
 {
     {
-        .pinnum = 18,
-        .altnum = 0,
+        pinnum : 18,
+        altnum : 0,
     },
     {
-        .pinnum = 28,
-        .altnum = 2,
+        pinnum : 28,
+        altnum : 2,
     },
 };
 
@@ -50,12 +50,12 @@ const pcm_pin_table_t pcm_pin_clk[] =
 const pcm_pin_table_t pcm_pin_fs[] =
 {
     {
-        .pinnum = 19,
-        .altnum = 0,
+        pinnum : 19,
+        altnum : 0,
     },
     {
-        .pinnum = 29,
-        .altnum = 2,
+        pinnum : 29,
+        altnum : 2,
     },
 };
 
@@ -63,12 +63,12 @@ const pcm_pin_table_t pcm_pin_fs[] =
 const pcm_pin_table_t pcm_pin_din[] =
 {
     {
-        .pinnum = 20,
-        .altnum = 0,
+        pinnum : 20,
+        altnum : 0,
     },
     {
-        .pinnum = 30,
-        .altnum = 2,
+        pinnum : 30,
+        altnum : 2,
     },
 };
 
@@ -76,32 +76,32 @@ const pcm_pin_table_t pcm_pin_din[] =
 const pcm_pin_table_t pcm_pin_dout[] =
 {
     {
-        .pinnum = 21,
-        .altnum = 0,
+        pinnum : 21,
+        altnum : 0,
     },
     {
-        .pinnum = 31,
-        .altnum = 2,
+        pinnum : 31,
+        altnum : 2,
     },
 };
 
 const pcm_pin_tables_t pcm_pin_tables[NUM_PCMFUNS] =
 {
     {
-        .pins = pcm_pin_clk,
-        .count = sizeof(pcm_pin_clk) / sizeof(pcm_pin_clk[0]),
+        pins :pcm_pin_clk,
+        count: sizeof(pcm_pin_clk) / sizeof(pcm_pin_clk[0]),
     },
     {
-        .pins = pcm_pin_fs,
-        .count = sizeof(pcm_pin_fs) / sizeof(pcm_pin_fs[0]),
+        pins :pcm_pin_fs,
+        count: sizeof(pcm_pin_fs) / sizeof(pcm_pin_fs[0]),
     },
     {
-        .pins = pcm_pin_din,
-        .count = sizeof(pcm_pin_din) / sizeof(pcm_pin_din[0]),
+        pins :pcm_pin_din,
+        count: sizeof(pcm_pin_din) / sizeof(pcm_pin_din[0]),
     },
     {
-        .pins = pcm_pin_dout,
-        .count = sizeof(pcm_pin_dout) / sizeof(pcm_pin_dout[0]),
+        pins :pcm_pin_dout,
+        count: sizeof(pcm_pin_dout) / sizeof(pcm_pin_dout[0]),
     },
 };
 
