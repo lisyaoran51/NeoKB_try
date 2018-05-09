@@ -1,5 +1,8 @@
-all: NeoKB.cpp NeoKB.h clk.h gpio.h dma.h pwm.h ws2811.h
-	g++ -o NeoKB.cpp dma.o pwm.o ws2811.o
+all: NeoKB.o dma.o pwm.o ws2811.o
+	g++ -o NeoKB NeoKB.o dma.o pwm.o ws2811.o mailbox.o pcm.o rpihw.o
+
+NeoKB.o: NeoKB.cpp NeoKB.h clk.h gpio.h dma.h pwm.h ws2811.h
+	g++ -c NeoKB.cpp dma.o pwm.o ws2811.o
 
 dma.o: dma.c dma.h
 	g++ -c dma.c
