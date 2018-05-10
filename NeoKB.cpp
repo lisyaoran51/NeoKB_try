@@ -1,8 +1,25 @@
 #include "NeoKB.h"
 
+ws2811_t ledstring = {};
+ledstring.freq = TARGET_FREQ;
+ledstring.dmanum = DMA;
+ledstring.channel = {{},{}};
+ledstring.channel[0].gpionum = GPIO_PIN;
+ledstring.channel[0].count = LED_COUNT;
+ledstring.channel[0].invert = 0;
+ledstring.channel[0].brightness = 255;
+ledstring.channel[0].strip_type = STRI P_TYPE;
+ledstring.channel[1].gpionum = 0;
+ledstring.channel[1].count = 0;
+ledstring.channel[1].invert = 0;
+ledstring.channel[1].brightness = 0;
+
+
 int main(int argc, char *argv[])
 {
 	ws2811_return_t ret;
+
+
 
 	//sprintf(VERSION, "%d.%d.%d", VERSION_MAJOR, VERSION_MINOR, VERSION_MICRO);
 	//
