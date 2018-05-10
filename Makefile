@@ -1,5 +1,5 @@
-all: NeoKB.o dma.o pwm.o ws2811.o
-	g++ -o NeoKB NeoKB.o dma.o pwm.o ws2811.o mailbox.o pcm.o rpihw.o
+all: NeoKB.o dma.o pwm.o ws2811.o mailbox.o pcm.o rpihw.o
+	g++ -o NeoKB NeoKB.o dma.o pwm.o ws2811.o mailbox.o pcm.o rpihw.o -Wall
 
 NeoKB.o: NeoKB.cpp NeoKB.h clk.h gpio.h dma.h pwm.h ws2811.h
 	g++ -c NeoKB.cpp 
@@ -24,3 +24,6 @@ pcm.o: pcm.c pcm.h
 
 rpihw.o: rpihw.c rpihw.h
 	g++ -c rpihw.c
+
+clean:
+	rm -f *.o
