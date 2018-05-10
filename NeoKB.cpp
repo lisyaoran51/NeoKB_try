@@ -2,7 +2,7 @@
 
 // defaults for cmdline options
 #define TARGET_FREQ             WS2811_TARGET_FREQ
-#define GPIO_PIN                18
+#define GPIO_PIN                19
 #define DMA                     10
 //#define STRIP_TYPE            WS2811_STRIP_RGB		// WS2812/SK6812RGB integrated chip+leds
 #define STRIP_TYPE              WS2811_STRIP_GBR		// WS2812/SK6812RGB integrated chip+leds
@@ -42,6 +42,8 @@ int main(int argc, char *argv[])
 		0x00100010,  // purple
 		0x00200010,  // pink
 	};
+
+	ws2811_init(&ledstring);
 
 	while (1) {
 		for (int i = 0; i < 8; i++) {
