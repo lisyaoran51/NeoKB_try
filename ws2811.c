@@ -183,7 +183,7 @@ static int map_registers(ws2811_t *ws2811)
 
     switch (device->driver_mode) {
     case PWM:
-        device->pwm = mapmem(PWM_OFFSET + base, sizeof(pwm_t), DEV_MEM);
+        device->pwm = (pwm_t*)mapmem(PWM_OFFSET + base, sizeof(pwm_t), DEV_MEM);
         if (!device->pwm)
         {
             return -1;
@@ -191,7 +191,7 @@ static int map_registers(ws2811_t *ws2811)
         break;
 
     case PCM:
-        device->pcm = mapmem(PCM_OFFSET + base, sizeof(pcm_t), DEV_MEM);
+        device->pcm = (pcm_t*)mapmem(PCM_OFFSET + base, sizeof(pcm_t), DEV_MEM);
         if (!device->pcm)
         {
             return -1;
@@ -204,7 +204,7 @@ static int map_registers(ws2811_t *ws2811)
      * However, it used /dev/mem before, so I'm leaving it as such.
      */
 
-    device->gpio = mapmem(GPIO_OFFSET + base, sizeof(gpio_t), DEV_MEM);
+    device->gpio = (gpio_t*)mapmem(GPIO_OFFSET + base, sizeof(gpio_t), DEV_MEM);
     if (!device->gpio)
     {
         return -1;
@@ -218,7 +218,7 @@ static int map_registers(ws2811_t *ws2811)
         offset = CM_PCM_OFFSET;
         break;
     }
-    device->cm_clk = mapmem(offset + base, sizeof(cm_clk_t), DEV_MEM);
+    device->cm_clk = (cm_clk_t*)mapmem(offset + base, sizeof(cm_clk_t), DEV_MEM);
     if (!device->cm_clk)
     {
         return -1;
