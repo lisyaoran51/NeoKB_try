@@ -1,5 +1,8 @@
 #include "NeoKB.h"
 
+#include <unistd.h>
+
+
 // defaults for cmdline options
 #define TARGET_FREQ             WS2811_TARGET_FREQ
 #define GPIO_PIN                10
@@ -52,9 +55,14 @@ int main(int argc, char *argv[])
 	while (1) {
 		for (int i = 0; i < 8; i++) {
 			for (int j = 0; j < 8; j++) {
-				ledstring.channel[0].leds[i] = dotcolors[j];
+				ledstring.channel[0].leds[j] = dotcolors[i];
+				
 			}
 			ws2811_render(&ledstring);
+			printf("render %d time...", i);
+
+			// 15 frames /sec
+			usleep(1000000 / 15);
 		}
 	}
 
