@@ -63,10 +63,10 @@ int main(int argc, char *argv[])
 				fprintf(stderr, "ws2811_render failed: %s\n", ws2811_get_return_t_str(ret));
 				break;
 			}
-			printf("render %d time...", i);
+			//printf("render %d time...", i);
 
 			// 15 frames /sec
-			usleep(1000000 / 15);
+			//usleep(1000000 / 15);
 		}
 	}
 
