@@ -56,9 +56,13 @@ int main(int argc, char *argv[])
 		for (int i = 0; i < 8; i++) {
 			for (int j = 0; j < 8; j++) {
 				ledstring.channel[0].leds[j] = dotcolors[i];
-				
+				ledstring.channel[0].leds[j] = 0x00201000;
 			}
-			ws2811_render(&ledstring);
+			if ((ret = ws2811_render(&ledstring)) != WS2811_SUCCESS)
+			{
+				fprintf(stderr, "ws2811_render failed: %s\n", ws2811_get_return_t_str(ret));
+				break;
+			}
 			printf("render %d time...", i);
 
 			// 15 frames /sec
