@@ -175,7 +175,7 @@ static int map_registers(ws2811_t *ws2811)
     }
     dma_addr += rpi_hw->periph_base;
 
-    device->dma = mapmem(dma_addr, sizeof(dma_t), DEV_MEM);
+    device->dma = (volatile dma_t)mapmem(dma_addr, sizeof(dma_t), DEV_MEM);
     if (!device->dma)
     {
         return -1;
