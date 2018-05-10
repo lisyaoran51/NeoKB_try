@@ -109,20 +109,20 @@ const pcm_pin_tables_t pcm_pin_tables[NUM_PCMFUNS] =
 const pcm_pin_tables_t pcm_pin_tables[NUM_PCMFUNS] =
 {
 	{
-		pcm_pin_clk,
 		sizeof(pcm_pin_clk) / sizeof(pcm_pin_clk[0]),
+		pcm_pin_clk,
 	},
 	{
-		pcm_pin_fs,
 		sizeof(pcm_pin_fs) / sizeof(pcm_pin_fs[0]),
+		pcm_pin_fs,
 	},
 	{
-		pcm_pin_din,
 		sizeof(pcm_pin_din) / sizeof(pcm_pin_din[0]),
+		pcm_pin_din,
 	},
 	{
-		pcm_pin_dout,
 		sizeof(pcm_pin_dout) / sizeof(pcm_pin_dout[0]),
+		pcm_pin_dout,
 	},
 };
 
