@@ -9,7 +9,7 @@
 //#define STRIP_TYPE            SK6812_STRIP_RGBW		// SK6812RGBW (NOT SK6812RGB)
 
 #define WIDTH                   8
-#define HEIGHT                  8
+#define HEIGHT                  1
 #define LED_COUNT               (WIDTH * HEIGHT)
 
 ws2811_t ledstring = {};
@@ -30,6 +30,27 @@ int main(int argc, char *argv[])
 	ledstring.channel[1].count = 0;
 	ledstring.channel[1].invert = 0;
 	ledstring.channel[1].brightness = 0;
+
+	ws2811_led_t dotcolors[] =
+	{
+		0x00200000,  // red
+		0x00201000,  // orange
+		0x00202000,  // yellow
+		0x00002000,  // green
+		0x00002020,  // lightblue
+		0x00000020,  // blue
+		0x00100010,  // purple
+		0x00200010,  // pink
+	};
+
+	while (1) {
+		for (int i = 0; i < 8; i++) {
+			for (int j = 0; j < 8; j++) {
+				ledstring.channel[0].leds[i] = dotcolors[j];
+			}
+			ws2811_render(&ledstring);
+		}
+	}
 
 
 
