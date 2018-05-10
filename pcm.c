@@ -85,6 +85,7 @@ const pcm_pin_table_t pcm_pin_dout[] =
     },
 };
 
+/*
 const pcm_pin_tables_t pcm_pin_tables[NUM_PCMFUNS] =
 {
     {
@@ -103,6 +104,26 @@ const pcm_pin_tables_t pcm_pin_tables[NUM_PCMFUNS] =
         pins :pcm_pin_dout,
         count: sizeof(pcm_pin_dout) / sizeof(pcm_pin_dout[0]),
     },
+};*/
+
+const pcm_pin_tables_t pcm_pin_tables[NUM_PCMFUNS] =
+{
+	{
+		pcm_pin_clk,
+		sizeof(pcm_pin_clk) / sizeof(pcm_pin_clk[0]),
+	},
+	{
+		pcm_pin_fs,
+		sizeof(pcm_pin_fs) / sizeof(pcm_pin_fs[0]),
+	},
+	{
+		pcm_pin_din,
+		sizeof(pcm_pin_din) / sizeof(pcm_pin_din[0]),
+	},
+	{
+		pcm_pin_dout,
+		sizeof(pcm_pin_dout) / sizeof(pcm_pin_dout[0]),
+	},
 };
 
 
