@@ -791,7 +791,7 @@ static ws2811_return_t spi_init(ws2811_t *ws2811)
     device->mbox.handle = -1;
 
     // Set SPI-MOSI pin
-    device->gpio = mapmem(GPIO_OFFSET + base, sizeof(gpio_t), DEV_GPIOMEM);
+    device->gpio = (gpio_t*)mapmem(GPIO_OFFSET + base, sizeof(gpio_t), DEV_GPIOMEM);
     if (!device->gpio)
     {
         return WS2811_ERROR_SPI_SETUP;
@@ -800,7 +800,7 @@ static ws2811_return_t spi_init(ws2811_t *ws2811)
 
     // Allocate LED buffer
     ws2811_channel_t *channel = &ws2811->channel[0];
-    channel->leds = malloc(sizeof(ws2811_led_t) * channel->count);
+    channel->leds = (ws2811_led_t*)malloc(sizeof(ws2811_led_t) * channel->count);
     if (!channel->leds)
     {
         ws2811_cleanup(ws2811);
@@ -815,7 +815,7 @@ static ws2811_return_t spi_init(ws2811_t *ws2811)
     // Set default uncorrected gamma table
     if (!channel->gamma)
     {
-      channel->gamma = malloc(sizeof(uint8_t) * 256);
+      channel->gamma = (uint8_t*)malloc(sizeof(uint8_t) * 256);
       int x;
       for(x = 0; x < 256; x++){
         channel->gamma[x] = x;
@@ -828,7 +828,7 @@ static ws2811_return_t spi_init(ws2811_t *ws2811)
     channel->bshift = (channel->strip_type >> 0)  & 0xff;
 
     // Allocate SPI transmit buffer (same size as PCM)
-    device->pxl_raw = malloc(PCM_BYTE_COUNT(device->max_count, ws2811->freq));
+    device->pxl_raw = (uint8_t*)malloc(PCM_BYTE_COUNT(device->max_count, ws2811->freq));
     if (device->pxl_raw == NULL)
     {
         ws2811_cleanup(ws2811);
@@ -887,7 +887,7 @@ ws2811_return_t ws2811_init(ws2811_t *ws2811)
     }
     rpi_hw = ws2811->rpi_hw;
 
-    ws2811->device = malloc(sizeof(*ws2811->device));
+    ws2811->device = (ws2811_device_t*)malloc(sizeof(*ws2811->device));
     if (!ws2811->device)
     {
         return WS2811_ERROR_OUT_OF_MEMORY;
@@ -940,7 +940,7 @@ ws2811_return_t ws2811_init(ws2811_t *ws2811)
        return WS2811_ERROR_MEM_LOCK;
     }
 
-    device->mbox.virt_addr = mapmem(BUS_TO_PHYS(device->mbox.bus_addr), device->mbox.size, DEV_MEM);
+    device->mbox.virt_addr = (uint8_t*)mapmem(BUS_TO_PHYS(device->mbox.bus_addr), device->mbox.size, DEV_MEM);
     if (!device->mbox.virt_addr)
     {
         mem_unlock(device->mbox.handle, device->mbox.mem_ref);
@@ -963,7 +963,7 @@ ws2811_return_t ws2811_init(ws2811_t *ws2811)
     {
         ws2811_channel_t *channel = &ws2811->channel[chan];
 
-        channel->leds = malloc(sizeof(ws2811_led_t) * channel->count);
+        channel->leds = (ws2811_led_t*)malloc(sizeof(ws2811_led_t) * channel->count);
         if (!channel->leds)
         {
             ws2811_cleanup(ws2811);
@@ -980,7 +980,7 @@ ws2811_return_t ws2811_init(ws2811_t *ws2811)
         // Set default uncorrected gamma table
         if (!channel->gamma)
         {
-          channel->gamma = malloc(sizeof(uint8_t) * 256);
+          channel->gamma = (uint8_t*)malloc(sizeof(uint8_t) * 256);
           int x;
           for(x = 0; x < 256; x++){
             channel->gamma[x] = x;
