@@ -54,7 +54,7 @@ int main(int argc, char *argv[])
 
 	while (1) {
 		for (int i = 0; i < 8; i++) {
-			for (int j = 0; j < 8; j++) {
+			for (int j = 0; j < WIDTH; j++) {
 				ledstring.channel[0].leds[j] = dotcolors[i];
 				//ledstring.channel[0].leds[j] = 0x00201000;
 			}
