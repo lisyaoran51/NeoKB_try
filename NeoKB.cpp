@@ -66,7 +66,7 @@ int main(int argc, char *argv[])
 			//printf("render %d time...", i);
 
 			// 15 frames /sec
-			//usleep(1000000 / 15);
+			usleep(1000000 / 15);
 		}
 	}
 
