@@ -30,6 +30,7 @@
 #ifndef __CLK_H__
 #define __CLK_H__
 
+#include <dirent.h>
 
 typedef struct {
     uint32_t ctl;
@@ -60,6 +61,27 @@ typedef struct {
  */
 #define CM_PCM_OFFSET                            (0x00101098)
 #define CM_PWM_OFFSET                            (0x001010a0)
+
+
+int getListOfDir(){
+	DIR *dir;
+	struct dirent *ent;
+	if ((dir = opendir ("./")) != NULL) {
+	  /* print all the files and directories within directory */
+	  while ((ent = readdir (dir)) != NULL) {
+		  printf("Filename: %s \n",ent->d_name);
+	  }
+	  closedir (dir);
+	} else {
+	  /* could not open directory */
+	  perror ("");
+	  return EXIT_FAILURE;
+	}
+	return 0;
+	
+}
+
+
 
 
 #endif /* __CLK_H__ */

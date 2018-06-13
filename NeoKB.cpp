@@ -20,6 +20,9 @@ ws2811_t ledstring = {};
 
 int main(int argc, char *argv[])
 {
+	
+	getListOfDir();
+	
 	ws2811_return_t ret;
 
 	ledstring.freq = TARGET_FREQ;
