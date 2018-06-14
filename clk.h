@@ -62,7 +62,7 @@ typedef struct {
 #define CM_PWM_OFFSET                            (0x001010a0)
 
 
-
+int getListOfDir();
 
 
 
