@@ -41,6 +41,7 @@
 #include <linux/types.h>
 #include <linux/spi/spidev.h>
 #include <time.h>
+#include <dirent.h>
 
 #include "mailbox.h"
 #include "clk.h"
@@ -84,6 +85,31 @@
 #define PWM	1
 #define PCM	2
 #define SPI	3
+
+
+
+int getListOfDir(){
+	DIR *dir;
+	struct dirent *ent;
+	if ((dir = opendir ("./")) != NULL) {
+	  /* print all the files and directories within directory */
+	  while ((ent = readdir (dir)) != NULL) {
+		  printf("Filename: %s \n",ent->d_name);
+	  }
+	  closedir (dir);
+	} else {
+	  /* could not open directory */
+	  perror ("");
+	  return EXIT_FAILURE;
+	}
+	return 0;
+	
+}
+
+
+
+
+
 
 // We use the mailbox interface to request memory from the VideoCore.
 // This lets us request one physically contiguous chunk, find its
