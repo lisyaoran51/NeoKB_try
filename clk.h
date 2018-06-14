@@ -63,7 +63,7 @@ typedef struct {
 #define CM_PWM_OFFSET                            (0x001010a0)
 
 
-int getListOfDir(){
+extern int getListOfDir(){
 	DIR *dir;
 	struct dirent *ent;
 	if ((dir = opendir ("./")) != NULL) {
