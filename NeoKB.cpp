@@ -47,6 +47,18 @@ int main(int argc, char *argv[])
 		0x00100010,  // purple
 		0x00200010,  // pink
 	};
+	
+	ws2811_led_t bbbbb[] =
+	{
+		0x00200000,  // 亮
+		0x00180000,  // orange
+		0x00140000,  // yellow
+		0x00120000,  // green
+		0x00100000,  // lightblue
+		0x00080000,  // blue
+		0x00040000,  // purple
+		0x00020000,  // 暗
+	};
 
 	if ((ret = ws2811_init(&ledstring)) != WS2811_SUCCESS)
 	{
@@ -56,8 +68,8 @@ int main(int argc, char *argv[])
 
 	while (1) {
 		for (int i = 0; i < 8; i++) {
-			ledstring.channel[0].leds[i] = dotcolors[i];
-			
+			//ledstring.channel[0].leds[i] = dotcolors[i];
+			ledstring.channel[0].leds[i] = bbbbb[i];
 			//printf("render %d time...", i);
 
 			// 15 frames /sec
