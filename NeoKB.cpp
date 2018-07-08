@@ -50,14 +50,14 @@ int main(int argc, char *argv[])
 	
 	ws2811_led_t bbbbb[] =
 	{
-		0x00200000,  // 亮
-		0x00180000,  // orange
-		0x00140000,  // yellow
-		0x00120000,  // green
-		0x00100000,  // lightblue
-		0x00080000,  // blue
-		0x00040000,  // purple
-		0x00020000,  // 暗
+		0x00800000,  // 亮
+		0x00780000,  // orange
+		0x00640000,  // yellow
+		0x00520000,  // green
+		0x00400000,  // lightblue
+		0x00380000,  // blue
+		0x00240000,  // purple
+		0x00120000,  // 暗
 	};
 
 	if ((ret = ws2811_init(&ledstring)) != WS2811_SUCCESS)
