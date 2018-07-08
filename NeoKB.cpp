@@ -56,7 +56,7 @@ int main(int argc, char *argv[])
 
 	while (1) {
 		for (int i = 0; i < 8; i++) {
-			ledstring.channel[0].leds[j] = dotcolors[i];
+			ledstring.channel[0].leds[i] = dotcolors[i];
 			
 			//printf("render %d time...", i);
 
