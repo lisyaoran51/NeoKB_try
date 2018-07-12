@@ -2,11 +2,11 @@ VPATH=aaa:bbb
 
 all:test
 
-test:main.o
+test:Main.o
 	g++ -o test main.o
 	
-main.o:main.cpp aaa.h bbb.h
-	g++ -c main.cpp
+main.o:Main.cpp aaa.h bbb.h
+	g++ -c Main.cpp
 
 
 
