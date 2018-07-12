@@ -3,5 +3,5 @@
 class bbb{
 	
 	int i;
-}
+};
 
