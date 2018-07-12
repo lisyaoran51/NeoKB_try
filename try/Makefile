@@ -1,4 +1,4 @@
-VPATH=../try:aaa:bbb
+VPATH=aaa:bbb
 
 all:test
 
