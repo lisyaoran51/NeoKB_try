@@ -1,12 +1,24 @@
 VPATH=aaa:bbb
+#compiler 
+CC = g++
+#cflags 
+CFLAGS = -Wall -ansi -s
+#object 
+OBJS = main.o
 
 all:test
 
-test:Main.o
-	g++ -o test Main.o
+test: $(OBJS) 
+	$(CC) $(OBJS) -o $@ 
+#test:Main.o
+	#g++ -o test Main.o
 	
-main.o:Main.cpp aaa.h bbb.h
-	g++ -c Main.cpp
 
-
+.c.o:
+	$(CC) $(CFLAGS) -c -o $@ $< 	
+	
+.cpp.o:
+	$(CC) $(CFLAGS) -c -o $@ $< 
+#main.o:Main.cpp aaa.h bbb.h
+#	g++ -c Main.cpp
 
