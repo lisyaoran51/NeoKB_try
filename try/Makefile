@@ -1,4 +1,4 @@
-VPATH=aaa:bbb
+VPATH=Aaa:bbb
 #compiler 
 CC = g++
 #cflags 
