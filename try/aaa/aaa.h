@@ -3,6 +3,9 @@
 class aaa{
 	
 	bbb bo;
+	public:
+	
+	void ppppp();
 	
 };
 
