@@ -6,7 +6,9 @@ class aaa{
 	bbb bo;
 	public:
 	
-	void ppppp();
+	void ppppp(){
+	cout << "ppppp" << endl;
+}
 	
 };
 
