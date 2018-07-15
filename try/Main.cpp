@@ -3,7 +3,7 @@
 
 int main(int argc, char *argv[]) {
 
-	aaa ao;
+	aaa<int> ao;
 	ao.ppppp();
 	return 0;
 }
