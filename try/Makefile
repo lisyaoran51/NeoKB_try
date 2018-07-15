@@ -5,7 +5,7 @@ CC = g++
 #cflags 
 CFLAGS = -Wall -ansi -s
 #object 
-OBJS = Main.o
+OBJS = Main.o aaa.o
 
 all:test
 
