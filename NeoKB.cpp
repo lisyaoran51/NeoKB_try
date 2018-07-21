@@ -71,7 +71,7 @@ int main(int argc, char *argv[])
 	while (1) {
 		for (int i = 0; i < LED_COUNT; i++) {
 			//ledstring.channel[0].leds[i] = dotcolors[i];
-			ledstring.channel[0].leds[i] = bbbbb[i%8];
+			ledstring.channel[0].leds[i] = dotcolors[i%8];
 			//printf("render %d time...", i);
 
 			// 15 frames /sec
