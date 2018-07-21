@@ -13,8 +13,8 @@
 
 #define WIDTH                   24
 #define HEIGHT                  1
-//#define LED_COUNT               (WIDTH * HEIGHT)
-#define LED_COUNT				248
+#define LED_COUNT               (WIDTH * HEIGHT)
+//#define LED_COUNT				248
 
 
 ws2811_t ledstring = {};
