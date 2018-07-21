@@ -13,7 +13,9 @@
 
 #define WIDTH                   24
 #define HEIGHT                  1
-#define LED_COUNT               (WIDTH * HEIGHT)
+//#define LED_COUNT               (WIDTH * HEIGHT)
+#define LED_COUNT				248
+
 
 ws2811_t ledstring = {};
 
@@ -67,9 +69,9 @@ int main(int argc, char *argv[])
 	}
 
 	while (1) {
-		for (int i = 0; i < 8; i++) {
+		for (int i = 0; i < LED_COUNT; i++) {
 			//ledstring.channel[0].leds[i] = dotcolors[i];
-			ledstring.channel[0].leds[i] = bbbbb[i];
+			ledstring.channel[0].leds[i] = bbbbb[i%8];
 			//printf("render %d time...", i);
 
 			// 15 frames /sec
